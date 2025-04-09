@@ -3,7 +3,7 @@
 Este é um projeto de estudo com [Playwright](https://playwright.dev/), ferramenta de automação de testes para aplicações web. O objetivo principal é praticar e demonstrar testes automatizados com **boas práticas de organização**, incluindo:
 
 - Page Objects  
-- Separação de testes por funcionalidades  
+- Separação de testes por funcionalidade s  
 - Execução multi-navegador  
 - Execução mobile  
 - Geração de relatórios HTML
