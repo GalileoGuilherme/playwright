@@ -1,12 +1,10 @@
-const fs = require("fs-extra");
+// copy-report.js
+const fs = require('fs');
+const path = require('path');
+const fse = require('fs-extra');
 
-const source = "./playwright-report";
-const destination = "./";
+const source = path.join(__dirname, 'playwright-report');
+const destination = path.join(__dirname, 'report');
 
-if (fs.existsSync(source)) {
-  fs.copySync(source, destination, { overwrite: true });
-  console.log("Relatório copiado com sucesso para a raiz do projeto!");
-} else {
-  console.error("Pasta 'playwright-report' não encontrada!");
-  process.exit(1);
-}
+fse.removeSync(destination);
+fse.copySync(source, destination);
