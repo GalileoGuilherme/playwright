@@ -1,41 +1,28 @@
 name: Playwright Tests
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push, pull_request]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.51.1-jammy
+
     steps:
-      - name: Checkout Repository
+      - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - name: Instalar dependências
+        run: npm ci
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Playwright Install Directly
-        run: |
-          node ./node_modules/playwright/cli.js install --with-deps
-      
-
-      - name: Install Playwright Browsers
-        run: |
-          node ./node_modules/playwright/cli.js install --with-deps
-      
-
-      - name: Run Playwright Tests
+      - name: Rodar testes
         run: npx playwright test
 
-      - name: Upload HTML Report as Artifact
+      - name: Gerar relatório para deploy
+        run: npm run build:report
+
+      - name: Salvar relatório como artefato
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: playwright-report
+          path: report
