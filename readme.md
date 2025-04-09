@@ -45,7 +45,7 @@ npm run test:mobile
 Sempre que um teste for executado, o relatório é gerado na pasta `playwright-report`.
 
 ### 🔗 Acesse o relatório online:  
-👉 [Ver relatório mais recente](https://playwright-bl9dbdqsp-galileo-guilhermes-projects.vercel.app)
+👉 [Ver relatório mais recente ](https://playwright-bl9dbdqsp-galileo-guilhermes-projects.vercel.app)
 
 ## 🔁 CI/CD com GitHub Actions  
 O projeto conta com integração contínua via GitHub Actions, que executa os testes automaticamente em cada push. O relatório gerado é publicado automaticamente na Vercel.
