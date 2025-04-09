@@ -18,7 +18,7 @@
     "open:report": "npx playwright show-report",
     "build:report": "npm run test:report && node copy-report.js"
   },
-  "author": "Seu Nome",
+  "author": "Galileo Guilherme",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
