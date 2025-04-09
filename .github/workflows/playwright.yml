@@ -21,6 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Run Playwright Install Directly
+        run: |
+          node ./node_modules/playwright/cli.js install --with-deps
+      
+
       - name: Install Playwright Browsers
         run: |
           node ./node_modules/playwright/cli.js install --with-deps
