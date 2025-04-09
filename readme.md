@@ -102,6 +102,7 @@ npm run open:report
 - Page Object Model  
 - HTML Reporter
 
+
 ---
 
 ---
