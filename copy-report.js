@@ -1,10 +1,7 @@
-// copy-report.js
-const fs = require('fs');
-const path = require('path');
-const fse = require('fs-extra');
+const fs = require('fs-extra');
 
-const source = path.join(__dirname, 'playwright-report');
-const destination = path.join(__dirname, 'report');
+const origem = 'playwright-report';
+const destino = 'public';
 
-fse.removeSync(destination);
-fse.copySync(source, destination);
+fs.copySync(origem, destino, { overwrite: true });
+console.log(`Relatório copiado de "${origem}" para "${destino}"`);
