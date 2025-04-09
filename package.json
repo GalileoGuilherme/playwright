@@ -15,7 +15,8 @@
     "test:produtos": "npx playwright test tests/produtos",
     "test:menu": "npx playwright test tests/menu",
     "test:report": "npx playwright test --reporter=html",
-    "open:report": "npx playwright show-report"
+    "open:report": "npx playwright show-report",
+    "build:report": "npm run test:report && node copy-report.js"
   },
   "author": "Seu Nome",
   "license": "ISC",
