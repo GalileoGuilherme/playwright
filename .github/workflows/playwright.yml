@@ -9,22 +9,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do repositório
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Configurar Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Instalar dependências
+      - name: Install dependencies
         run: npm install
 
-      - name: Instalar navegadores do Playwright
+      - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Rodar testes e gerar relatório HTML
-        run: npm run test:report
+      - name: Run Playwright Tests and Generate HTML Report
+        run: npx playwright test --reporter=html
 
-      - name: Copiar relatório para raiz do projeto (para Vercel)
-        run: npm run build:report
+      - name: Copy HTML report to root for Vercel
+        run: |
+          rm -rf playwright-report-old
+          mv playwright-report playwright-report-old
+          cp -r playwright-report-old/* ./  # copia para raiz do projeto
+
+      - name: Upload artifact (opcional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-report
+          path: ./playwright-report
