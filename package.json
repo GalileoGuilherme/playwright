@@ -1,9 +1,25 @@
 {
+  "name": "playwright-study",
+  "version": "1.0.0",
+  "description": "Projeto de estudo com Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:chrome": "npx playwright test --project=Chromium",
+    "test:firefox": "npx playwright test --project=Firefox",
+    "test:webkit": "npx playwright test --project=WebKit",
+    "test:mobile": "npx playwright test --project='Mobile Safari'",
+    "test:login": "npx playwright test tests/login",
+    "test:produtos": "npx playwright test tests/produtos",
+    "test:menu": "npx playwright test tests/menu",
+    "open:report": "npx playwright show-report"
+  },
+  "author": "Seu Nome",
+  "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
     "playwright": "^1.51.1"
-  },
-  "scripts": {
-    "test": "npx playwright test"
   }
 }
