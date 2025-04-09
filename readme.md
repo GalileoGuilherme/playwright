@@ -104,6 +104,10 @@ npm run open:report
 
 ---
 
+---
 
+![Playwright](https://github.com/GalileoGuilherme/playwright/actions/workflows/playwright.yml/badge.svg)
+
+---
 
 
