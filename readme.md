@@ -1,113 +1,67 @@
-# 🎯 Playwright Study Project
+# 🎭 Playwright Study  
+Projeto de estudo usando **Playwright** com **JavaScript**, focado em testes automatizados e explorando boas práticas, execução em múltiplos browsers, dispositivos móveis, relatórios e integração com CI/CD.
 
-Este é um projeto de estudo com [Playwright](https://playwright.dev/), ferramenta de automação de testes para aplicações web. O objetivo principal é praticar e demonstrar testes automatizados com **boas práticas de organização**, incluindo:
+## 📦 Tecnologias Utilizadas  
+- [Playwright](https://playwright.dev/)  
+- JavaScript (Node.js)  
+- GitHub Actions  
+- Vercel (para visualização de relatórios)
 
-- Page Objects  
-- Separação de testes por funcionalidades  
-- Execução multi-navegador  
-- Execução mobile  
-- Geração de relatórios HTML
+## 🚀 Funcionalidades  
+- Testes automatizados com Playwright  
+- Execução em múltiplos browsers: Chromium, Firefox, WebKit  
+- Execução em ambiente mobile (emulado)  
+- Geração de relatórios em HTML  
+- Deploy automático dos relatórios na Vercel
 
----
+## 🧲 Rodando os Testes  
 
-## 📁 Estrutura do Projeto
-
-```
-playwright-study/
-├── tests/
-│   ├── login/
-│   ├── produtos/
-│   └── menu/
-├── pages/
-├── utils/
-├── playwright.config.js
-├── package.json
-└── README.md
-```
-
----
-
-## 🚀 Como executar
-
-### 1. Clone o projeto
-
-```bash
-git clone https://github.com/GalileoGuilherme/playwright.git
-cd playwright-study
-```
-
-### 2. Instale as dependências
-
+### 1. Instalar dependências  
 ```bash
 npm install
 ```
 
-### 3. Execute os testes
-
-#### Rodar todos os testes:
+### 2. Executar os testes  
 ```bash
+# Todos os testes
 npm test
-```
 
-#### Rodar com navegador visível:
-```bash
+# Testes com browser visível
 npm run test:headed
-```
 
-#### Rodar modo debug (step-by-step):
-```bash
+# Testes em modo debug
 npm run test:debug
-```
 
-#### Rodar testes específicos:
-```bash
-npm run test:login
-npm run test:produtos
-npm run test:menu
-```
-
----
-
-## 🧪 Navegadores suportados
-
-Este projeto está configurado para rodar os testes em múltiplos navegadores:
-
-- ✅ Chromium (Chrome)  
-- ✅ Firefox  
-- ✅ WebKit (Safari)  
-- ✅ Mobile emulado (iPhone 12)
-
-#### Exemplo:
-```bash
+# Testar em navegadores específicos
 npm run test:chrome
+npm run test:firefox
+npm run test:webkit
+
+# Testes mobile (Safari emulado)
 npm run test:mobile
 ```
 
----
+## 📊 Acessar Relatório HTML  
+Sempre que um teste for executado, o relatório é gerado na pasta `playwright-report`.
 
-## 📊 Relatório de testes
+### 🔗 Acesse o relatório online:  
+👉 [Ver relatório mais recente](https://playwright-bl9dbdqsp-galileo-guilhermes-projects.vercel.app)
 
-Ao final da execução, o relatório HTML é gerado automaticamente e aberto no navegador:
+## 🔁 CI/CD com GitHub Actions  
+O projeto conta com integração contínua via GitHub Actions, que executa os testes automaticamente em cada push. O relatório gerado é publicado automaticamente na Vercel.
 
-```bash
-npm run open:report
+## 📂 Estrutura de Pastas  
+```
+├── tests/                # Casos de teste organizados por funcionalidade
+├── playwright-report/    # Relatório gerado após execução
+├── .github/workflows/    # Configuração de CI com GitHub Actions
+├── package.json          # Scripts e dependências do projeto
+└── vercel.json           # Configuração de deploy da Vercel
 ```
 
----
+## 👨‍💼 Autor  
+**Galileo Guilherme**  
+💼 Projeto pessoal para estudo e prática de testes automatizados com Playwright.
 
-## 🧰 Tecnologias utilizadas
-
-- [Playwright](https://playwright.dev/)  
-- JavaScript (Node.js)  
-- Page Object Model  
-- HTML Reporter
-
----
-
----
-
-![Playwright](https://github.com/GalileoGuilherme/playwright/actions/workflows/playwright.yml/badge.svg)
-
----
-
-
+## 📝 Licença  
+Este projeto está sob a licença ISC.
