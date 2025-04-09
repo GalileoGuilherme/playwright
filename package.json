@@ -17,11 +17,11 @@
     "test:report": "npx playwright test --reporter=html",
     "open:report": "npx playwright show-report",
     "build:report": "npm run test:report && node copy-report.js"
-
   },
   "author": "Seu Nome",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.51.1"
+    "@playwright/test": "^1.51.1",
+    "fs-extra": "^11.3.0"
   }
 }
