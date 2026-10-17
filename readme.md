@@ -85,6 +85,8 @@ npm run test:debug
 
 ## Relatórios
 
+Veja os testes e o relatório publicado no [Playwright Test Report](https://playwright-one.vercel.app/).
+
 O Playwright gera um relatório HTML em `playwright-report` ao executar os testes. Para abri-lo:
 
 ```bash
