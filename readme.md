@@ -1,82 +1,122 @@
-# Playwright Test Suite
+# Playwright E2E Test Suite
 
-> Suíte de testes automatizados de ponta a ponta (E2E) e cross-browser utilizando Playwright, focada em velocidade, confiabilidade e execução paralela.
+Suíte de testes end-to-end para os principais fluxos do [SauceDemo](https://www.saucedemo.com/), desenvolvida com [Playwright Test](https://playwright.dev/) e o padrão Page Object Model.
 
-## 📦 Pré-requisitos
+## O que é testado
 
-* Node.js 18+ (LTS recomendado)
-* Git
-* Um editor de código, como o VSCode
+- Login de usuário
+- Exibição da lista de produtos
+- Adição de produto ao carrinho
+- Logout
 
-## 🗂 Estrutura do projeto
+Os testes usam a aplicação pública SauceDemo e precisam de acesso à internet.
+
+## Tecnologias
+
+- JavaScript
+- Node.js 18 ou superior
+- Playwright Test
+- Page Object Model (POM)
+- GitHub Actions
+
+## Instalação
+
+Clone o repositório, instale as dependências e baixe os navegadores do Playwright:
+
+```bash
+git clone https://github.com/GalileoGuilherme/playwright.git
+cd playwright
+npm ci
+npx playwright install
+```
+
+## Executar os testes
+
+Execute todos os testes nos projetos configurados:
+
+```bash
+npm test
+```
+
+Para executar em um navegador ou perfil específico:
+
+```bash
+npm run test:chrome
+npm run test:firefox
+npm run test:webkit
+npm run test:mobile
+```
+
+O projeto `Mobile Safari` usa o perfil de dispositivo iPhone 12 com o mecanismo WebKit. Ele simula o dispositivo; não executa em um aparelho físico.
+
+Para executar um grupo de testes:
+
+```bash
+npm run test:login
+npm run test:produtos
+npm run test:menu
+```
+
+## Execução visual e depuração
+
+Para acompanhar os testes em um navegador visível:
+
+```bash
+npm run test:headed
+```
+
+Para executar apenas no Chromium em modo visível:
+
+```bash
+npm run test:chrome -- --headed
+```
+
+Para abrir a interface interativa do Playwright e selecionar testes:
+
+```bash
+npx playwright test --ui
+```
+
+Para iniciar o Playwright Inspector:
+
+```bash
+npm run test:debug
+```
+
+## Relatórios
+
+O Playwright gera um relatório HTML em `playwright-report` ao executar os testes. Para abri-lo:
+
+```bash
+npm run open:report
+```
+
+Para executar novamente toda a suíte e copiar o relatório para `public`:
+
+```bash
+npm run build:report
+```
+
+## Integração contínua
+
+O workflow do GitHub Actions executa os testes em push e pull requests. O relatório é enviado como artefato da execução, inclusive quando há falha nos testes.
+
+## Estrutura do projeto
 
 ```text
-playwright/
-  ├─ .github/workflows/ # Pipeline de CI/CD (GitHub Actions)
-  ├─ e2e/               # Casos de teste de ponta a ponta
-  ├─ fixtures/          # Massa de dados e mocks
-  ├─ pages/             # Padrão Page Object Model (POM)
-  ├─ playwright.config.js # Configurações globais e multiplataforma
-  ├─ package.json       # Dependências e scripts
-  └─ package-lock.json
-
+.github/workflows/  Workflow de CI
+pages/              Page Objects
+public/             Relatório copiado para publicação
+tests/              Testes E2E organizados por fluxo
+utils/              Utilitários compartilhados
+copy-report.js      Cópia do relatório para public
+playwright.config.js Configuração de projetos e execução
 ```
 
-## ⚙️ Configuração e Instalação
+## Licença
 
-1. Clone o repositório:
-```bash
-git clone <url-do-repositorio>
+Distribuído sob a licença MIT. Consulte [LICENSE](./LICENSE).
 
-```
+## Autor
 
-
-2. Acesse a pasta do projeto:
-```bash
-cd playwright
-
-```
-
-
-3. Instale as dependências e os navegadores:
-```bash
-npm install
-npx playwright install
-
-```
-
-
-
-## 🚀 Scripts NPM disponíveis
-
-```bash
-# Executar os testes em modo headless
-npx playwright test
-
-# Executar os testes com interface gráfica interativa (UI Mode)
-npx playwright test --ui
-
-# Visualizar o relatório detalhado da última execução
-npx playwright show-report
-
-```
-
-## 📌 Principais Recursos
-
-* **Execução Paralela:** Alta performance na execução de testes em múltiplos navegadores (Chromium, Firefox, WebKit).
-* **Auto-waiting Nativo:** Redução drástica de falhas por elementos não carregados ou instabilidade (*flaky tests*).
-* **Trace Viewer & Screenshots:** Captura automática de rastreios, vídeos e capturas de tela em caso de falhas para facilitar o *debugging*.
-
-## ⚡ Objetivo
-
-Garantir a qualidade, estabilidade e validação rápida de fluxos críticos de aplicações web modernas através de ferramentas modernas de automação.
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
-
-## 👤 Autor
-
-Desenvolvido por **Galileo Guilherme**
-
-[LinkedIn](https://www.linkedin.com/in/galileo-guilherme-silva-01996693/) • Email: galileoguilhermeqa@gmail.com
+**Galileo Guilherme** — [LinkedIn](https://www.linkedin.com/in/galileoguilherme-silva-01996693/) · [Email](mailto:galileoguilherme@outlook.com)

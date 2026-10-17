@@ -2,7 +2,7 @@
   "name": "playwright-study",
   "version": "1.0.0",
   "description": "Projeto de estudo com Playwright",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "npx playwright test",
     "test:headed": "npx playwright test --headed",
@@ -10,7 +10,7 @@
     "test:chrome": "npx playwright test --project=Chromium",
     "test:firefox": "npx playwright test --project=Firefox",
     "test:webkit": "npx playwright test --project=WebKit",
-    "test:mobile": "npx playwright test --project='Mobile Safari'",
+    "test:mobile": "npx playwright test --project=\"Mobile Safari\"",
     "test:login": "npx playwright test tests/login",
     "test:produtos": "npx playwright test tests/produtos",
     "test:menu": "npx playwright test tests/menu",
@@ -19,7 +19,7 @@
     "build:report": "npm run test:report && node copy-report.js"
   },
   "author": "Galileo Guilherme",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
     "fs-extra": "^11.3.0"

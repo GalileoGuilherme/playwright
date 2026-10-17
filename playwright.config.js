@@ -15,6 +15,10 @@ module.exports = defineConfig({
       use: { browserName: 'chromium' },
     },
     {
+      name: 'Firefox',
+      use: { browserName: 'firefox' },
+    },
+    {
       name: 'WebKit',
       use: { browserName: 'webkit' },
     },

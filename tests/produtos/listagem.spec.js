@@ -11,7 +11,6 @@ test.describe('Listagem de produtos', () => {
 
   test('Deve exibir a lista de produtos', async ({ page }) => {
     const inventoryPage = new InventoryPage(page);
-    const count = await inventoryPage.countProducts();
-    expect(count).toBeGreaterThan(0);
+    await expect.poll(() => inventoryPage.countProducts()).toBeGreaterThan(0);
   });
 });

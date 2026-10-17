@@ -16,13 +16,17 @@ jobs:
         run: npm ci
 
       - name: Rodar testes
+        id: tests
         run: npx playwright test
 
-      - name: Gerar relatório para deploy
-        run: npm run build:report
+      - name: Preparar relatório para deploy
+        id: prepare_report
+        if: ${{ !cancelled() && steps.tests.outcome != 'skipped' }}
+        run: node copy-report.js
 
       - name: Salvar relatório como artefato
+        if: ${{ !cancelled() && steps.prepare_report.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: report
+          path: public

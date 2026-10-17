@@ -22,7 +22,6 @@ exports.InventoryPage = class InventoryPage {
   
     async logout() {
       await this.menuButton.click();
-      await this.page.waitForTimeout(500);
       await this.logoutButton.click();
     }
   };
